@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamed Ashraf | Creative Designer</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-left: 40px;
+      padding-right: 40px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 50px;
+      background: #121212;
+      animation: slideDown 1s ease-in-out;
+    }
+
+    header nav {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    header nav a {
+      position: relative;
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.3s;
+      font-size: 16px;
+    }
+
+    header nav a::before {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: orange;
+      opacity: 0;
+      transition: opacity 0.3s ease, top 0.3s ease;
+      font-weight: 600;
+      white-space: nowrap;
+      font-size: 14px;
+    }
+
+    header nav a:hover {
+      color: transparent;
+    }
+
+    header nav a:hover::before {
+      opacity: 1;
+      top: 0;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 70px;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    .hero-text {
+      max-width: 600px;
+      animation: fadeInLeft 1s ease-in-out;
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      line-height: 1.2;
+    }
+
+    .hero-text h1 span {
+      display: block;
+    }
+
+    .hero-text h2 {
+      color: #b5a567;
+      margin: 20px 0 30px;
+    }
+
+    .hero-text p {
+      color: #b5a567;
+      font-weight: 600;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      color: #b5a567;
+      margin-right: 15px;
+      font-size: 20px;
+      transition: transform 0.3s ease, color 0.3s ease;
+      display: inline-block;
+    }
+
+    .social-icons a:hover {
+      transform: translateY(8px);
+      color: #ffffff;
+    }
+
+    .hero-image img {
+      width: 600px;
+      border-radius: 12px;
+      animation: fadeInRight 1s ease-in-out;
+    }
+
+    a.whatsapp-icon img {
+      width: 70px;
+      height: 70px;
+    }
+
+    a.whatsapp-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    a.whatsapp-icon:hover {
+      transform: translateY(-5px);
+    }
+
+    .moon-toggle {
+      position: fixed;
+      top: 25px;
+      right: 170px;
+      font-size: 24px;
+      color: #fff;
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+
+    .moon-toggle:hover {
+      transform: translateY(-5px);
+    }
+
+    .search-toggle {
+      position: fixed;
+      top: 25px;
+      right: 100px;
+      font-size: 24px;
+      color: #fff;
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+
+    .search-toggle:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      position: fixed;
+      bottom: 10px;
+      left: 40px;
+      display: flex;
+      justify-content: space-between;
+      width: calc(100% - 80px);
+      color: #b5a567;
+      font-size: 14px;
+    }
+
+    .footer-left {
+      text-align: left;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    @keyframes fadeInLeft {
+      0% { opacity: 0; transform: translateX(-50px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInRight {
+      0% { opacity: 0; transform: translateX(50px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      0% { opacity: 0; transform: translateY(-40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* تنسيق قسم التصميمات */
+    .designs {
+      margin: 60px 0;
+      text-align: center;
+    }
+
+    /* تنسيق المربع الشفاف */
+    .designs-container {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      max-width: 1200px;
+      background-color: rgba(255, 255, 255, 0.2); /* شفاف */
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3); /* حواف بيضاء */
+      overflow: hidden;
+    }
+
+    /* تأثير الحركة داخل المربع */
+    .designs-slider {
+      display: flex;
+      justify-content: flex-start;
+      animation: slideLeft 15s infinite linear; /* حركة مستمرة من اليمين لليسار */
+    }
+
+    .designs-slider img {
+      width: 250px; /* يمكنك تغيير الحجم حسب الحاجة */
+      margin-right: 15px;
+      border-radius: 8px;
+      opacity: 0.8;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .designs-slider img:hover {
+      opacity: 1;
+    }
+
+    @keyframes slideLeft {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="logo-0.png" alt="Logo"></a>
+    </div>
+    <nav>
+      <a href="index.html" data-text="Home">Home</a>
+      <a href="#" data-text="My Work">My Work</a>
+      <a href="#" data-text="Social Media">Social Media</a>
+      <a href="#" data-text="Brands">Brands</a>
+      <a href="https://drive.google.com/file/d/1awiUNXz4_7-8iqlCQOGBIImGr7nxuwqq/view" target="_blank" data-text="Download My Resume">Download My Resume</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <p>Hi, I'm</p>
+      <h2>Mohamed Ashraf</h2>
+      <h1><span>Creative</span><span>Designer.</span></h1>
+      <p>
+        professional graphic designer with over four years of experience.
+        Proficient in Adobe Illustrator and Photoshop, I transform ideas into effective visuals that help brands stand out and connect with their audience.
+      </p>
+<div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=100010383916588" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/mohamed.ashraf_12/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@mohamedashraf0212" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.behance.net/mohamedashraf338" target="_blank"><i class="fab fa-behance"></i></a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="profile.png" alt="Mohamed Ashraf">
+    </div>
+  </section>
+
+<section class="designs">
+  <!-- الجملة فوق المربع الأول -->
+  <div class="centered-text">
+    <p>Social Media Designs</p>
+  </div>
+
+  <!-- تصميمات القسم مع الحركة من اليمين لليسار -->
+  <section class="designs">
+    <div class="designs-container">
+      <div class="designs-slider">
+        <img src="images1/design1.jpg" alt="Design 1">
+        <img src="images1/design2.jpg" alt="Design 2">
+        <img src="images1/design3.jpg" alt="Design 3">
+        <img src="images1/design4.jpg" alt="Design 4">
+        <img src="images1/design5.jpg" alt="Design 5">
+        <img src="images1/design6.jpg" alt="Design 6">
+        <img src="images1/design7.jpg" alt="Design 7">
+        <img src="images1/design8.jpg" alt="Design 8">
+        <img src="images1/design9.jpg" alt="Design 9">
+      </div>
+    </div>
+  </section>
+ <!-- تصميمات القسم مع الحركة من اليمين لليسار -->
+  <section class="designs">
+    <div class="designs-container">
+      <div class="designs-slider">
+        <img src="images2/design1.png" alt="Design 1">
+        <img src="images2/design2.png" alt="Design 2">
+        <img src="images2/design3.png" alt="Design 3">
+        <img src="images2/design4.png" alt="Design 4">
+        <img src="images2/design5.png" alt="Design 5">
+        <img src="images2/design6.png" alt="Design 6">
+        <img src="images2/design7.png" alt="Design 7">
+        <img src="images2/design8.png" alt="Design 8">
+        <img src="images2/design9.png" alt="Design 9">
+      </div>
+    </div>
+<!-- الجملة تحت المربع الأول -->
+  <div class="bottom-text">
+    <p>Logo - Visual Identity Designs</p>
+  </div>
+
+  <!-- المربع الثاني للصور المتحركة -->
+  <div class="designs-container">
+    <div class="designs-slider">
+      <img src="images3/design1.png" alt="Design 1">
+      <img src="images3/design2.png" alt="Design 2">
+      <img src="images3/design4.png" alt="Design 4">
+      <img src="images3/design5.png" alt="Design 5">
+      <img src="images3/design6.png" alt="Design 6">
+      <img src="images3/design7.png" alt="Design 7">
+      <img src="images3/design8.png" alt="Design 8">
+      <img src="images3/design9.png" alt="Design 9">
+      <img src="images3/design10.png" alt="Design 10">
+      <img src="images3/design11.png" alt="Design 11">
+      <img src="images3/design12.png" alt="Design 12">
+      <img src="images3/design13.png" alt="Design 13">
+      <img src="images3/design14.png" alt="Design 14">
+      <img src="images3/design15.png" alt="Design 15">
+      <img src="images3/design16.png" alt="Design 16">
+    </div>
+  </div>
+</section>
+
+<!-- المربع الجديد تحت آخر مربع صور -->
+  <section class="designs">
+    <div class="stats-container">
+      <!-- الخانة الأولى -->
+      <div class="stat-box">
+        <h3>Years of Experience</h3>
+        <p>Professional Design</p>
+        <div class="number" data-number="5">0</div>
+      </div>
+      <!-- الخانة الثانية -->
+      <div class="stat-box">
+        <h3>Company & Brand</h3>
+        <p>Trusted by leading brands</p>
+        <div class="number" data-number="149">0</div>
+      </div>
+      <!-- الخانة الثالثة -->
+      <div class="stat-box">
+        <h3>Social Media Design</h3>
+        <p>Designs Completed</p>
+        <div class="number" data-number="2760">0</div>
+      </div>
+    </div>
+  </section>
+
+<!-- إضافة الجملة بعد آخر جدول -->
+  <div class="project-text">
+    <p>Got a PROJECT IN MIND?</p>
+  </div>
+
+ <!-- إضافة الجملة بعد آخر جدول -->
+  <!-- إضافة زر "Let's Talk" -->
+  <a href="https://wa.me/201020570334" class="lets-talk-btn" target="_blank">
+    Let's Talk
+  </a>
+
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding: 20px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* الجملة التي تحت الجدول */
+    .left-text {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      align-self: center;
+    }
+
+    /* تنسيق الجدول */
+    table {
+      width: 60%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid white;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      color: #fff;
+    }
+
+    th {
+      background-color: #333;
+    }
+
+    td {
+      background-color: #444;
+    }
+
+    /* الجملة أسفل الجدول */
+    .bottom-text {
+      text-align: center;
+      color: #b5a567;
+      margin-top: 20px;
+    }
+
+    /* الجملة في أسفل الصفحة */
+    .contact-us-text {
+      text-align: center;
+      font-size: 18px;
+      color: #f8b400;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+
+    /* إضافة الجملة بعد آخر جدول */
+    .project-text {
+      text-align: center;
+      font-size: 26px;
+      color: #f8b400;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+
+    /* تنسيق زر "Let's Talk" */
+    .lets-talk-btn {
+      display: inline-block;
+      background-color: #b5a567;
+      color: #fff;
+      padding: 12px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
+
+    /* تغيير اللون عند المرور فوق الزر */
+    .lets-talk-btn:hover {
+      background-color: #ede0ab;
+    }
+  </style>
+
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding: 20px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+    }
+
+    /* الجملة التي تحت الجدول */
+    .left-text {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      align-self: center;
+    }
+
+    /* تنسيق الجدول */
+    table {
+      width: 60%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid white;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      color: #fff;
+    }
+
+    th {
+      background-color: #333;
+    }
+
+    td {
+      background-color: #444;
+    }
+
+    /* الجملة أسفل الجدول */
+    .bottom-text {
+      text-align: center;
+      color: #b5a567;
+      margin-top: 20px;
+    }
+
+    /* الجملة في أسفل الصفحة */
+    .contact-us-text {
+      text-align: center;
+      font-size: 18px;
+      color: #b5a567;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+
+    /* إضافة الجملة بعد آخر جدول */
+    .project-text {
+      text-align: center;
+      font-size: 60px;
+      color: #b5a567;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+  </style>
+
+
+ <style>
+    /* إضافة المربع الجديد بعد آخر مربع صور */
+    .stats-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      border: 1px solid white;
+      display: flex;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    }
+
+    .stat-box {
+      text-align: center;
+      width: 30%;
+    }
+
+    .stat-box h3 {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .stat-box p {
+      font-size: 18px;
+      color: #b5a567;
+    }
+
+    /* تأثير الأرقام */
+    .number {
+      font-size: 32px;
+      font-weight: bold;
+      color: #ffffff;
+      display: block;
+      margin-top: 10px;
+      animation: countUp 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes countUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .number[data-number] {
+      animation: none;
+    }
+
+    .number.visible {
+      animation: countUp 2s ease-out forwards;
+    }
+  </style>
+
+<!-- التعديل على تنسيق الجملة أسفل الصور -->
+<style>
+  /* تنسيق الجملة تحت آخر مربع صور */
+  .bottom-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px; /* المسافة بين المربع والجملة */
+    color: white;
+    font-size: 24px;
+    font-weight: bold; /* جعل الخط عريض */
+    margin-bottom: 25px; /* المسافة بين الجملة والمربع */
+    text-align: center;
+  }
+
+  .bottom-text p {
+    margin: 0;
+  }
+</style>
+<!-- التعديل على تنسيق الجملة -->
+<style>
+  /* تنسيق الجملة التي ستكون فوق المربع الأول */
+  .centered-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0px; /* تحديد ارتفاع مناسب */
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px; /* المسافة بين الجملة والمربع */
+    background: none; /* إزالة الخلفية */
+    border: none; /* إزالة أي حد */
+  }
+
+  .centered-text p {
+    margin: 0;
+  }
+</style>
+
+  <a href="https://wa.me/201020570334" target="_blank" class="whatsapp-icon">
+    <img src="whatsapp-icon.png" alt="WhatsApp" width="70" height="70">
+  </a>
+
+<!-- هلال التبديل -->
+  <div class="moon-toggle" onclick="toggleDarkMode()">
+    <i class="fas fa-moon"></i>
+  </div>
+
+  <!-- أيقونة البحث -->
+  <div class="search-toggle" onclick="searchPinterest()">
+    <i class="fas fa-search"></i>
+  </div>
+
+  <footer>
+    <div class="footer-left">©2025 Mohamed Ashraf, All Rights Reserved.</div>
+    <div class="footer-right">Developed by Mohamed.com</div>
+  </footer>
+
+  <script>
+    // دالة تغيير وضع الخلفية عند الضغط على الهلال
+    function toggleDarkMode() {
+      const body = document.body;
+      const moonIcon = document.querySelector('.moon-toggle i');
+      
+      // التبديل بين وضع الظلام والإضاءة
+      if (body.style.backgroundColor === 'rgb(18, 18, 18)') {
+    body.style.backgroundColor = '#ffffff'; // خلفية بيضاء
+    body.style.color = '#000000'; // نص أسود
+    moonIcon.classList.remove('fa-moon');
+    moonIcon.classList.add('fa-sun'); // تغيير الأيقونة إلى الشمس
+  } else {
+    body.style.backgroundColor = '#121212'; // خلفية داكنة
+    body.style.color = '#ffffff'; // نص أبيض
+    moonIcon.classList.remove('fa-sun');
+    moonIcon.classList.add('fa-moon'); // إعادة الأيقونة إلى القمر
+  }
+}
+
+// دالة البحث على Pinterest عند الضغط على أيقونة البحث
+function searchPinterest() {
+  const searchQuery = prompt("Enter search term for Pinterest:");
+  if (searchQuery) {
+    window.open(`https://www.pinterest.com//Mohamed/index.html/search/pins/?q=${encodeURIComponent(searchQuery)}`, "_blank");
+  }
+}
+</script>
+
+<script>
+    // دالة لتفعيل تأثير الأرقام
+    window.addEventListener('scroll', function() {
+      const statsContainer = document.querySelector('.stats-container');
+      const numbers = document.querySelectorAll('.number');
+
+      if (isElementInViewport(statsContainer)) {
+        numbers.forEach((num) => {
+          if (!num.classList.contains('visible')) {
+            num.classList.add('visible');
+            animateNumber(num);
+          }
+        });
+      }
+    });
+
+    function isElementInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+    }
+
+    function animateNumber(element) {
+      const number = element.getAttribute('data-number');
+      let current = 0;
+      const increment = Math.ceil(number / 50); // تحديد سرعة التزايد
+
+      const interval = setInterval(() => {
+        current += increment;
+        if (current >= number) {
+          current = number;
+          clearInterval(interval);
+        }
+        element.textContent = current;
+      }, 50);
+    }
+  </script>
+
+  <script>
+    function toggleDarkMode() {
+      const body = document.body;
+      const moonIcon = document.querySelector('.moon-toggle i');
+      if (body.style.backgroundColor === 'rgb(18, 18, 18)') {
+        body.style.backgroundColor = '#ffffff';
+        body.style.color = '#000000';
+        moonIcon.classList.remove('fa-moon');
+        moonIcon.classList.add('fa-sun');
+      } else {
+        body.style.backgroundColor = '#121212';
+        body.style.color = '#ffffff';
+        moonIcon.classList.remove('fa-sun');
+        moonIcon.classList.add('fa-moon');
+      }
+    }
+  </script>
+</body>
+</html>
